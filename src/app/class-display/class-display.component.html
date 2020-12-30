@@ -1,0 +1,40 @@
+<div class="container mt-5" style="min-height:80vh" *ngIf="loading">
+    <div class="text-center">
+      <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+  </div>
+
+<div class="container mt-5"  *ngIf="!loading">
+    <h3 class="title-green">標題</h3>
+    <div class="div_top_border_green"
+        role="alert">
+
+        <div *ngFor="let row of matrixData;let rowIndex = index">
+            <div class="row">
+                <div *ngFor="let col of row;let a=index" class="col-md-3 col-12"
+                    [ngClass]="{'Select_div':selData?.class == col.class }" (click)="selItem(rowIndex, col,a)">
+                    <h5 class="UnSelect_div"><strong>{{ col.class }}</strong></h5>
+                    <div *ngIf="rowIndex == activeRowIndex">
+                        <div [class]="rwd[rowIndex][a]">
+                            <div class="row">
+                                <div *ngFor="let item of selData.children" class="col-md-3 text-center p-3">
+                                    <a href="" class="children_text"><strong>{{item.c_class}}</strong></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="rowIndex == activeRowIndex" class="bg-light d-none d-md-block row">
+                <div class="row">
+                    <div *ngFor="let item of selData.children" class="col-md-3 text-center p-3">
+                        <a href="" class="children_text"><strong>{{item.c_class}}</strong></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

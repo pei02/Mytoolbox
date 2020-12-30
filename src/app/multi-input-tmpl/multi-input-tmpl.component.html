@@ -1,0 +1,31 @@
+<div class="bg-light p-5">
+    <div class="div_border_green p-3">
+        <span>100% Input</span>
+    </div>
+<label for="inputHashTag">HashTag</label>
+<div class="input-group mt-1" *ngFor="let i of hashtag_item;let a =index">
+    <input id="inputHashTag" class="form-control" type="text" placeholder="請輸入HashTag">
+    <div class="input-group-append">
+        <button class="btn btn-danger" type="button" (click)="Cut_Hashtag_item(a)"><i class="fas fa-minus"></i></button>
+    </div>
+</div>
+<button type="button" class="btn btn-success btn-sm btn-block mt-1" (click)="Add_Hashtag_item()"><i
+        class="fas fa-plus"></i></button>
+    </div>
+
+
+
+    <div class="bg-light p-5 mt-2">
+        <div class="div_border_green p-3">
+            <span>小標籤</span>
+        </div>
+    <label for="inputHashTag">HashTag</label>
+    <!-- <div class="input-group mt-1" *ngFor="let i of hashtag_item;let a =index">
+        <input id="inputHashTag" class="form-control" type="text" placeholder="請輸入HashTag">
+        <div class="input-group-append">
+            <button class="btn btn-danger" type="button" (click)="Cut_Hashtag_item(a)"><i class="fas fa-minus"></i></button>
+        </div>
+    </div>
+    <button type="button" class="btn btn-success btn-sm btn-block mt-1" (click)="Add_Hashtag_item()"><i
+            class="fas fa-plus"></i></button> -->
+        </div>

@@ -1,0 +1,23 @@
+<div class="bg-light p-5">
+    <div class="div_border_green p-3">
+        <span>大屏幕</span>
+    </div>
+<div class="text-center bg-dark w-100 img-frame-sm img-frame-md">
+    <img [src]="url" alt="your image" class="img-upload-md img-upload-sm" />
+</div>
+<div class="w-100" *ngIf="img_upload;then add_img else clear_img"></div>
+
+<ng-template #add_img>
+    <label class="btn btn-success btn-block text-center rounded-0">
+        <input type="file" accept="image/gif, image/jpeg, image/png" style="display:none" (change)="readUrl($event)" />
+        <i class="fas fa-plus"></i>
+    </label>
+</ng-template>
+
+<ng-template #clear_img>
+    <label class="btn btn-danger btn-block text-center rounded-0">
+        <input type="button" style="display:none" (click)="clear_url()" />
+        <i class="fas fa-minus"></i>
+    </label>
+</ng-template>
+</div>
