@@ -19,8 +19,8 @@
                     <div *ngIf="rowIndex == activeRowIndex">
                         <div [class]="rwd[rowIndex][a]">
                             <div class="row">
-                                <div *ngFor="let item of selData.children" class="col-md-3 text-center p-3">
-                                    <a href="" class="children_text"><strong>{{item.c_class}}</strong></a>
+                                <div *ngFor="let item of selData.children" class="col-md-3 p-3">
+                                    <a href="" class="children_text ml-3"><strong>{{item.c_class}}</strong></a>
                                 </div>
                             </div>
                         </div>
@@ -29,8 +29,8 @@
             </div>
             <div *ngIf="rowIndex == activeRowIndex" class="bg-light d-none d-md-block row">
                 <div class="row">
-                    <div *ngFor="let item of selData.children" class="col-md-3 text-center p-3">
-                        <a href="" class="children_text"><strong>{{item.c_class}}</strong></a>
+                    <div *ngFor="let item of selData.children" class="col-md-3 p-3">
+                        <a href="" class="children_text ml-3"><strong>{{item.c_class}}</strong></a>
                     </div>
                 </div>
             </div>

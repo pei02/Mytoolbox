@@ -1,0 +1,124 @@
+<div class="mb-3 row">
+  <div class="input-group col-8">
+    <input type="text" class="form-control" placeholder="請輸入內容">
+    <div class="input-group-append">
+      <button type="button" class="btn btn-success"><i class="fas fa-search"></i></button>
+    </div>
+  </div>
+  <div class="col-4">
+    <button type="button" class="btn btn-primary" style="float: right;" data-toggle="modal" data-target="#CreateNewData"
+      (click)="open_modal()">新增</button>
+  </div>
+</div>
+
+<table class="table table-bordered">
+  <thead>
+    <tr class="text-center">
+      <th scope="col"></th>
+      <th scope="col">欄1</th>
+      <th scope="col">欄2</th>
+      <th scope="col">欄3</th>
+      <th scope="col">欄4</th>
+      <th scope="col" width="20%"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="text-center" *ngFor="let item of data">
+      <td>{{item.key}}</td>
+      <td>{{item.content1}}</td>
+      <td>{{item.content2}}</td>
+      <td>{{item.content3}}</td>
+      <td>{{item.content4}}</td>
+      <td>
+        <button type="button" class="btn btn-link" data-toggle="modal" data-target="#CreateNewData"
+          (click)="open_modal(item.key)">詳細資料</button>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+
+
+<div class="modal fade" id="CreateNewData" tabindex="-1" role="dialog" aria-labelledby="CreateNewDataTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="modal-title" id="CreateNewDataTitle" *ngIf="!isCreate;then Create else Detail">
+
+        </span>
+        <ng-template #Create>新增資料</ng-template>
+        <ng-template #Detail>詳細資料</ng-template>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class class="modal-body" *ngIf="!isCreate;then Create_modal else Detail_modal"></div>
+      <ng-template #Detail_modal>
+        <div class="row p-3">
+          <div class="col-lg-12">
+            <span class="mb-1">key</span>
+            <span class="ml-3">{{filter_data.key}}</span>
+            <hr />
+          </div>
+          <div class="col-lg-12">
+            <span class="mb-1">欄1</span>
+            <span class="ml-3">{{filter_data.content1}}</span>
+            <hr />
+          </div>
+          <div class="col-lg-12">
+            <span class="mb-1">欄2</span>
+            <span class="ml-3">{{filter_data.content2}}</span>
+            <hr />
+          </div>
+          <div class="col-lg-6">
+            <span class="mb-1">欄3</span>
+            <span class="ml-3">{{filter_data.content3}}</span>
+            <hr />
+          </div>
+          <div class="col-lg-6">
+            <span class="mb-1">欄4</span>
+            <span class="ml-3">{{filter_data.content4}}</span>
+            <hr />
+          </div>
+        </div>
+      </ng-template>
+
+
+      <ng-template #Create_modal>
+        <form class="p-3">
+          <div class="form-group">
+            <label for="Inputcolumn1">Key</label>
+            <input type="text" class="form-control form-control-sm" id="Inputcolumn1" placeholder="請輸入內容">
+          </div>
+          <div class="form-group">
+            <label for="Inputcolumn1">欄1</label>
+            <input type="text" class="form-control form-control-sm" id="Inputcolumn1" placeholder="請輸入內容">
+          </div>
+          <div class="form-group">
+            <label for="Inputcolumn2">欄2</label>
+            <textarea id="Inputcolumn2" class="form-control form-control-sm" aria-label="With textarea"
+              name="description"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="Inputcolumn3">欄3</label>
+            <select class="form-control form-control-sm" id="Inputcolumn3">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="Inputcolumn4">欄4</label>
+            <input type="number" class="form-control form-control-sm" id="Inputcolumn4" name="column4" min="1" max="10"
+              value="1">
+          </div>
+          <button type="submit" class="btn btn-success btn-block">送出</button>
+        </form>
+      </ng-template>
+
+    </div>
+  </div>
+</div>

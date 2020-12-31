@@ -19,13 +19,16 @@
         <div class="div_border_green p-3">
             <span>小標籤</span>
         </div>
-    <label for="inputHashTag">HashTag</label>
-    <!-- <div class="input-group mt-1" *ngFor="let i of hashtag_item;let a =index">
-        <input id="inputHashTag" class="form-control" type="text" placeholder="請輸入HashTag">
+    <label for="inputBadgeItem">HashTag：
+        <span class="badge badge-success mr-1" *ngFor="let item of badge_item;let i =index">
+               {{item.badge}} <span (click)="del_badge(i)">&times;</span>
+        </span>
+    </label>
+
+    <div class="input-group mb-3">
+        <input id="inputBadgeItem" #inputBadgeItem  type="text" class="form-control" placeholder="請輸入HashTag" (keyup.enter)="add_badge(inputBadgeItem.value)">
         <div class="input-group-append">
-            <button class="btn btn-danger" type="button" (click)="Cut_Hashtag_item(a)"><i class="fas fa-minus"></i></button>
+          <button class="btn btn-success" (click)="add_badge(inputBadgeItem.value)">加入</button>
         </div>
-    </div>
-    <button type="button" class="btn btn-success btn-sm btn-block mt-1" (click)="Add_Hashtag_item()"><i
-            class="fas fa-plus"></i></button> -->
+      </div>
         </div>
