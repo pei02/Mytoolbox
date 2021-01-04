@@ -1,0 +1,90 @@
+<div class="bg-light p-5">
+    <div class="div_border_green p-3">
+        <span>Checkbox</span>
+    </div>
+    <div>
+        <p>基本款</p>
+        <div class="btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-outline-success mr-2" autocomplete="off" *ngFor="let item of check_box">
+                <input type="checkbox"> {{item}}
+            </label>
+        </div>
+    </div>
+
+    
+</div>
+
+<div class="bg-light p-5 mt-2">
+    <div class="div_border_green p-3">
+        <span>Radio button</span>
+    </div>
+    <div>
+        <p>基本款</p>
+        <div class="btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-outline-info mr-2" *ngFor="let item of Radio_button"
+                [class]="item.active?'active':''">
+                <input type="radio" name="options" autocomplete="off" checked> {{item.options}}
+            </label>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-4">
+            <p>性別 1</p>
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-blue">
+                    <input type="radio" name="options" autocomplete="off" checked><i
+                        class="fas fa-male"></i><strong>&nbsp;男</strong>
+                </label>
+                <label class="btn btn-pink">
+                    <input type="radio" name="options" autocomplete="off" checked><i
+                        class="fas fa-female"></i><strong>&nbsp;女</strong>
+                </label>
+                <label class="btn btn-black">
+                    <input type="radio" name="options" autocomplete="off" checked><i
+                        class="fas fa-question"></i><strong>&nbsp;保留</strong>
+                </label>
+            </div>
+        </div>
+        <div class="col-4">
+            <p>性別 2</p>
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-blue">
+                    <input type="radio" name="options" autocomplete="off" checked><strong>男</strong>
+                </label>
+                <label class="btn btn-pink">
+                    <input type="radio" name="options" autocomplete="off" checked><strong>女</strong>
+                </label>
+                <label class="btn btn-black">
+                    <input type="radio" name="options" autocomplete="off" checked><strong>保留</strong>
+                </label>
+            </div>
+        </div>
+        <div class="col-4">
+            <p>性別 3</p>
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-blue">
+                    <input type="radio" name="options" autocomplete="off" checked><i
+                        class="fas fa-male"></i>
+                </label>
+                <label class="btn btn-pink">
+                    <input type="radio" name="options" autocomplete="off" checked><i
+                        class="fas fa-female"></i>
+                </label>
+                <label class="btn btn-black">
+                    <input type="radio" name="options" autocomplete="off" checked><i
+                        class="fas fa-question"></i>
+                </label>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div>
+        <p>滿意度</p>
+        <div class="btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-transparent " autocomplete="off" *ngFor="let item of Evaluation;let a=index" (click)="Give_evaluation(a)" [class]="item.rate?'active':''">
+                <input type="radio" [checked]="Evaluation[a]"><i [class]="!item.rate?'far fa-star':'fas fa-star'"></i>
+            </label>
+        </div>
+    </div>
+</div>

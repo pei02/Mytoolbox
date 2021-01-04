@@ -11,6 +11,7 @@ import { MultiInputTmplComponent } from './multi-input-tmpl/multi-input-tmpl.com
 import { ClassDisplayComponent } from './class-display/class-display.component';
 import { TableComponent } from './table/table.component';
 import { Practice01Component } from './practice/practice01/practice01.component';
+import { ButtonBoxComponent } from './button-box/button-box.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { Practice01Component } from './practice/practice01/practice01.component'
     MultiInputTmplComponent,
     ClassDisplayComponent,
     TableComponent,
-    Practice01Component
+    Practice01Component,
+    ButtonBoxComponent
   ],
   imports: [
     BrowserModule,

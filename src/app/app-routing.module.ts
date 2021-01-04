@@ -6,6 +6,7 @@ import { MultiInputTmplComponent } from '../app/multi-input-tmpl/multi-input-tmp
 import { ClassDisplayComponent } from '../app/class-display/class-display.component';
 import { TableComponent } from '../app/table/table.component';
 import { Practice01Component } from '../app/practice/practice01/practice01.component';
+import { ButtonBoxComponent } from '../app/button-box/button-box.component';
 const routes: Routes = [
   { 
     path: '',
@@ -31,6 +32,10 @@ const routes: Routes = [
     path: 'practice/practice01',
     component: Practice01Component
   },
+  {
+    path: 'button-box',
+    component: ButtonBoxComponent
+  }
 ];
 
 @NgModule({
