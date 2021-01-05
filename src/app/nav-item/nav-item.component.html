@@ -9,24 +9,31 @@
           <a  class="nav-link" [routerLink]="'/picture-div'">picture-div</a>
         </li> -->
          <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="DropdownMenucomponent" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="DropdownMenucomponent" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
            元件
           </a>
           <div class="dropdown-menu" aria-labelledby="DropdownMenucomponent">
             <a class="dropdown-item" [routerLink]="'/picture-div'">圖片上傳與預覽</a>
             <a class="dropdown-item" [routerLink]="'/multi-input-tmpl'">HasgTag</a>
             <a class="dropdown-item" [routerLink]="'/button-box'">按鈕盒</a>
+            <a class="dropdown-item" [routerLink]="'/carousel'">輸播</a>
           </div>
         </li>
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="DropdownMenucomposing" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="DropdownMenucomposing" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
            排版
           </a>
           <div class="dropdown-menu" aria-labelledby="DropdownMenucomposing">
             <a class="dropdown-item" [routerLink]="'/class-display'">三階層顯示</a>
             <a class="dropdown-item" [routerLink]="'/table'">列表顯示與新增</a>
-            <a class="dropdown-item" [routerLink]="'/practice/practice01'">排版練習01</a>
+            
+            <a class="dropdown-item dropdown-toggle" href="#" id="DropdownForm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">表單01</a>
+            
+            <div class="dropdown-menu" aria-labelledby="DropdownForm">
+              <a class="dropdown-item" [routerLink]="'/practice/practice01'">表單01</a>
+            </div>
+           
           </div>
         </li>
       </ul>

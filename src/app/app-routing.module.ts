@@ -7,6 +7,7 @@ import { ClassDisplayComponent } from '../app/class-display/class-display.compon
 import { TableComponent } from '../app/table/table.component';
 import { Practice01Component } from '../app/practice/practice01/practice01.component';
 import { ButtonBoxComponent } from '../app/button-box/button-box.component';
+import { CarouselComponent } from '../app/carousel/carousel.component';
 const routes: Routes = [
   { 
     path: '',
@@ -35,6 +36,10 @@ const routes: Routes = [
   {
     path: 'button-box',
     component: ButtonBoxComponent
+  },
+  {
+    path: 'carousel',
+    component: CarouselComponent
   }
 ];
 

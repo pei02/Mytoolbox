@@ -12,6 +12,7 @@ import { ClassDisplayComponent } from './class-display/class-display.component';
 import { TableComponent } from './table/table.component';
 import { Practice01Component } from './practice/practice01/practice01.component';
 import { ButtonBoxComponent } from './button-box/button-box.component';
+import { CarouselComponent } from './carousel/carousel.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { ButtonBoxComponent } from './button-box/button-box.component';
     ClassDisplayComponent,
     TableComponent,
     Practice01Component,
-    ButtonBoxComponent
+    ButtonBoxComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,

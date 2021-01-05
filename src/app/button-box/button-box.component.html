@@ -10,8 +10,6 @@
             </label>
         </div>
     </div>
-
-    
 </div>
 
 <div class="bg-light p-5 mt-2">
@@ -29,7 +27,7 @@
     </div>
     <hr>
     <div class="row">
-        <div class="col-4">
+        <div class="col-lg-4">
             <p>性別 1</p>
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
                 <label class="btn btn-blue">
@@ -46,7 +44,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-lg-4">
             <p>性別 2</p>
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
                 <label class="btn btn-blue">
@@ -60,31 +58,64 @@
                 </label>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-lg-4">
             <p>性別 3</p>
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
                 <label class="btn btn-blue">
-                    <input type="radio" name="options" autocomplete="off" checked><i
-                        class="fas fa-male"></i>
+                    <input type="radio" name="options" autocomplete="off" checked><i class="fas fa-male"></i>
                 </label>
                 <label class="btn btn-pink">
-                    <input type="radio" name="options" autocomplete="off" checked><i
-                        class="fas fa-female"></i>
+                    <input type="radio" name="options" autocomplete="off" checked><i class="fas fa-female"></i>
                 </label>
                 <label class="btn btn-black">
-                    <input type="radio" name="options" autocomplete="off" checked><i
-                        class="fas fa-question"></i>
+                    <input type="radio" name="options" autocomplete="off" checked><i class="fas fa-question"></i>
                 </label>
             </div>
         </div>
     </div>
     <hr>
-    <div>
-        <p>滿意度</p>
-        <div class="btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-transparent " autocomplete="off" *ngFor="let item of Evaluation;let a=index" (click)="Give_evaluation(a)" [class]="item.rate?'active':''">
-                <input type="radio" [checked]="Evaluation[a]"><i [class]="!item.rate?'far fa-star':'fas fa-star'"></i>
-            </label>
+    <div class="row">
+        <div class="col-lg-3">
+            <p>滿意度1</p>
+            <div class="btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-transparent-yellow " autocomplete="off" *ngFor="let item of Evaluation;let a=index"
+                    (click)="Give_evaluation(a)" [class]="item.rate?'active':''">
+                    <input type="radio" [checked]="Evaluation[a]"><i
+                        [class]="!item.rate?'far fa-star':'fas fa-star'"></i>
+                </label>
+            </div>
+        </div>
+
+        <div class="col-lg-3">
+            <p>滿意度2</p>
+            <div class="btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-transparent-yellow " autocomplete="off" *ngFor="let item of Evaluation;let a=index"
+                    (click)="Give_evaluation(a)" [class]="item.rate?'active':''">
+                    <input type="radio" [checked]="Evaluation[a]"><i class="far fa-grin-alt"></i>
+                </label>
+            </div>
+        </div>
+
+        <div class="col-lg-3">
+            <p>滿意度3</p>
+            <div class="btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-transparent-pink " autocomplete="off" *ngFor="let item of Evaluation;let a=index"
+                    (click)="Give_evaluation(a)" [class]="item.rate?'active':''">
+                    <input type="radio" [checked]="Evaluation[a]"><i
+                    [class]="!item.rate?'far fa-heart':'fas fa-heart'"></i>
+                </label>
+            </div>
+        </div>
+
+        <div class="col-lg-3">
+            <p>滿意度4</p>
+            <div class="btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-transparent-blue " autocomplete="off" *ngFor="let item of Evaluation;let a=index"
+                    (click)="Give_evaluation(a)" [class]="item.rate?'active':''">
+                    <input type="radio" [checked]="Evaluation[a]"><i
+                    [class]="!item.rate?'far fa-thumbs-up':'fas fa-thumbs-up'"></i>
+                </label>
+            </div>
         </div>
     </div>
 </div>
