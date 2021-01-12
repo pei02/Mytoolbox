@@ -8,6 +8,7 @@ import { TableComponent } from '../app/table/table.component';
 import { Practice01Component } from '../app/practice/practice01/practice01.component';
 import { ButtonBoxComponent } from '../app/button-box/button-box.component';
 import { CarouselComponent } from '../app/carousel/carousel.component';
+import { Practice02Component } from '../app/practice/practice02/practice02.component';
 const routes: Routes = [
   { 
     path: '',
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path: 'practice/practice01',
     component: Practice01Component
+  },
+  {
+    path: 'practice/practice02',
+    component: Practice02Component
   },
   {
     path: 'button-box',

@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card my-3">
     <div class="card-body">
         <div class="row">
             <div class="col-10">
@@ -42,19 +42,21 @@
                     <label class="col-form-label">地址</label>
                     <div class="row">
                         <div class="col-sm-6">
-                    <select class="form-control">
-                        <option selected disabled>請選擇城市</option>
-                        <option>...</option>
-                    </select></div>
-                    <div class="col-sm-6">
-                    <select class="form-control">
-                        <option selected disabled>請選擇區域</option>
-                        <option>...</option>
-                    </select></div>
-                    <div class="col-12 mt-2">
-                    <input type="text" class="form-control" placeholder="請輸入地址">
-                </div>
-                </div>
+                            <select class="form-control my-1">
+                                <option selected disabled>請選擇城市</option>
+                                <option>...</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-6">
+                            <select class="form-control my-1">
+                                <option selected disabled>請選擇區域</option>
+                                <option>...</option>
+                            </select>
+                        </div>
+                        <div class="col-12 my-1">
+                            <input type="text" class="form-control" placeholder="請輸入地址">
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group col-sm-12">
                     <label class="col-form-label">信箱</label>
@@ -77,226 +79,52 @@
 
                 <div class="form-group col-sm-12">
                     <label class="col-form-label">請問您本次到下列哪個服務站？</label>
-                    <div class="btn-group-toggle row ml-1" data-toggle="buttons">
-                        <label class="btn btn-outline-success btn-sm col-sm-2 col-5 my-1 mx-1" autocomplete="off"
-                            *ngFor="let item of check_box">
-                            <input type="checkbox"> {{item}}
-                        </label>
+                    <div class="row">
+                        <div class="col-sm-3 col-6 my-1 btn-group-toggle" *ngFor="let item of check_box"
+                            data-toggle="buttons">
+                            <label class="btn btn-outline-success btn-sm btn-block" autocomplete="off">
+                                <input type="checkbox"> {{item}}
+                            </label>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group col-sm-12">
                     <label class="col-form-label">請問您本次到駐法院家事服務中心洽公，對於服務人員的服務態度辦事效率滿意度為何？</label>
-                    <div class="bg-light pb-3 pr-3">
-                        <label class="col-form-label font-weight-bolder triangle text-light pr-5 pl-3">服務人員部分</label>
-                        <div class="row ml-3 my-1">
-                            <label class="col-form-label col-xl-3">服務態度</label>
-                            <div class="btn-group-toggle col-xl-3" data-toggle="buttons">
-                                <div class="btn-group-toggle" data-toggle="buttons">
-                                    <label class="btn btn-angry " autocomplete="off">
-                                        <input type="radio" name="options" id="option1" autocomplete="off">
-                                        <i class="far fa-angry"></i>
-                                    </label>
-                                    <label class="btn btn-frown " autocomplete="off">
-                                        <input type="radio" name="options" id="option1" autocomplete="off">
-                                        <i class="far fa-frown"></i>
-                                    </label>
-                                    <label class="btn btn-meh " autocomplete="off">
-                                        <input type="radio" name="options" id="option1" autocomplete="off">
-                                        <i class="far fa-meh"></i>
-                                    </label>
-                                    <label class="btn btn-grin " autocomplete="off">
-                                        <input type="radio" name="options" id="option1" autocomplete="off">
-                                        <i class="far fa-grin"></i>
-                                    </label>
-                                    <label class="btn btn-laugh-beam " autocomplete="off">
-                                        <input type="radio" name="options" id="option1" autocomplete="off">
-                                        <i class="far fa-laugh-beam"></i>
-                                    </label>
+                    <div *ngFor="let item of Satisfaction_form">
+                        <div class="bg-light pb-3 pr-3" >
+                            <label
+                                class="col-form-label font-weight-bolder triangle text-light pr-5 pl-3">{{item.section}}</label>
+                            <div class="row ml-3 my-1" *ngFor="let satisfaction of item.children">
+                                <label class="col-form-label col-xl-3">{{satisfaction.Satisfaction}}</label>
+                                <div class="btn-group-toggle col-xl-3" data-toggle="buttons" *ngIf="satisfaction.face">
+                                    <div class="btn-group-toggle" data-toggle="buttons">
+                                        <label class="btn" autocomplete="off" *ngFor="let i of icon" [class]="i.css">
+                                            <input type="radio" name="options" autocomplete="off">
+                                            <i class="far" [class]="i.icon"></i>
+                                        </label>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-xl-6">
-                                <input type="text" class="form-control" placeholder="請輸入不滿意原因">
-                            </div>
-                        </div>
-                        <div class="row ml-3 my-1">
-                            <label class="col-form-label col-xl-3">辦事效率</label>
-                            <div class="btn-group-toggle col-xl-3" data-toggle="buttons">
-                                <label class="btn btn-transparent-blue " autocomplete="off"
-                                    *ngFor="let item of Evaluation;let a=index" (click)="Give_evaluation(a)"
-                                    [class]="item.rate?'active':''">
-                                    <input type="radio" [checked]="Evaluation[a]"><i
-                                        [class]="!item.rate?'far fa-thumbs-up':'fas fa-thumbs-up'"></i>
-                                </label>
-                            </div>
-                            <div class="col-xl-6">
-                                <input type="text" class="form-control" placeholder="請輸入不滿意原因">
-                            </div>
-                        </div>
-
-                        <div class="row ml-3 my-1">
-                            <label class="col-form-label col-xl-3">諮詢服務內容</label>
-                            <div class="btn-group-toggle col-xl-3" data-toggle="buttons">
-                                <label class="btn btn-transparent-blue " autocomplete="off"
-                                    *ngFor="let item of Evaluation;let a=index" (click)="Give_evaluation(a)"
-                                    [class]="item.rate?'active':''">
-                                    <input type="radio" [checked]="Evaluation[a]"><i
-                                        [class]="!item.rate?'far fa-thumbs-up':'fas fa-thumbs-up'"></i>
-                                </label>
-                            </div>
-                            <div class="col-xl-6">
-                                <input type="text" class="form-control" placeholder="請輸入不滿意原因">
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="bg-light  pb-3 pr-3">
-                        <label class="col-form-label font-weight-bolder  triangle text-light pr-5 pl-3">社工督導人員部分</label>
-                        <div class="row ml-3 my-1">
-                            <label class="col-form-label col-xl-3">服務態度</label>
-                            <div class="btn-group-toggle col-xl-3" data-toggle="buttons">
-                                <label class="btn btn-transparent-blue " autocomplete="off"
-                                    *ngFor="let item of Evaluation;let a=index" (click)="Give_evaluation(a)"
-                                    [class]="item.rate?'active':''">
-                                    <input type="radio" [checked]="Evaluation[a]"><i
-                                        [class]="!item.rate?'far fa-thumbs-up':'fas fa-thumbs-up'"></i>
-                                </label>
-                            </div>
-                            <div class="col-xl-6">
-                                <input type="text" class="form-control" placeholder="請輸入不滿意原因">
-                            </div>
-                        </div>
-                        <div class="row ml-3 my-1">
-                            <label class="col-form-label col-xl-3">辦事效率</label>
-                            <div class="btn-group-toggle col-xl-3" data-toggle="buttons">
-                                <label class="btn btn-transparent-blue " autocomplete="off"
-                                    *ngFor="let item of Evaluation;let a=index" (click)="Give_evaluation(a)"
-                                    [class]="item.rate?'active':''">
-                                    <input type="radio" [checked]="Evaluation[a]"><i
-                                        [class]="!item.rate?'far fa-thumbs-up':'fas fa-thumbs-up'"></i>
-                                </label>
-                            </div>
-                            <div class="col-xl-6">
-                                <input type="text" class="form-control" placeholder="請輸入不滿意原因">
-                            </div>
-                        </div>
-
-                        <div class="row ml-3 my-1">
-                            <label class="col-form-label col-xl-3">諮詢服務內容</label>
-                            <div class="btn-group-toggle col-xl-3" data-toggle="buttons">
-                                <label class="btn btn-transparent-blue " autocomplete="off"
-                                    *ngFor="let item of Evaluation;let a=index" (click)="Give_evaluation(a)"
-                                    [class]="item.rate?'active':''">
-                                    <input type="radio" [checked]="Evaluation[a]"><i
-                                        [class]="!item.rate?'far fa-thumbs-up':'fas fa-thumbs-up'"></i>
-                                </label>
-                            </div>
-                            <div class="col-xl-6">
-                                <input type="text" class="form-control" placeholder="請輸入不滿意原因">
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="bg-light  pb-3 pr-3">
-                        <label class="col-form-label font-weight-bolder  triangle text-light pr-5 pl-3">志工人員部分</label>
-                        <div class="row ml-3 my-1">
-                            <label class="col-form-label col-xl-3">服務態度</label>
-                            <div class="btn-group-toggle col-xl-3" data-toggle="buttons">
-                                <label class="btn btn-transparent-blue " autocomplete="off"
-                                    *ngFor="let item of Evaluation;let a=index" (click)="Give_evaluation(a)"
-                                    [class]="item.rate?'active':''">
-                                    <input type="radio" [checked]="Evaluation[a]"><i
-                                        [class]="!item.rate?'far fa-thumbs-up':'fas fa-thumbs-up'"></i>
-                                </label>
-                            </div>
-                            <div class="col-xl-6">
-                                <input type="text" class="form-control" placeholder="請輸入不滿意原因">
-                            </div>
-                        </div>
-                        <div class="row ml-3 my-1">
-                            <label class="col-form-label col-xl-3">辦事效率</label>
-                            <div class="btn-group-toggle col-xl-3" data-toggle="buttons">
-                                <label class="btn btn-transparent-blue " autocomplete="off"
-                                    *ngFor="let item of Evaluation;let a=index" (click)="Give_evaluation(a)"
-                                    [class]="item.rate?'active':''">
-                                    <input type="radio" [checked]="Evaluation[a]"><i
-                                        [class]="!item.rate?'far fa-thumbs-up':'fas fa-thumbs-up'"></i>
-                                </label>
-                            </div>
-                            <div class="col-xl-6">
-                                <input type="text" class="form-control" placeholder="請輸入不滿意原因">
-                            </div>
-                        </div>
-
-                        <div class="row ml-3 my-1">
-                            <label class="col-form-label col-xl-3">諮詢服務內容</label>
-                            <div class="btn-group-toggle col-xl-3" data-toggle="buttons">
-                                <label class="btn btn-transparent-blue " autocomplete="off"
-                                    *ngFor="let item of Evaluation;let a=index" (click)="Give_evaluation(a)"
-                                    [class]="item.rate?'active':''">
-                                    <input type="radio" [checked]="Evaluation[a]"><i
-                                        [class]="!item.rate?'far fa-thumbs-up':'fas fa-thumbs-up'"></i>
-                                </label>
-                            </div>
-                            <div class="col-xl-6">
-                                <input type="text" class="form-control" placeholder="請輸入不滿意原因">
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="bg-light pb-3 pr-3">
-                        <label class="col-form-label font-weight-bolder  triangle text-light pr-5 pl-3">環境、設施及服務措施部分</label>
-                        <div class="row ml-3 my-1">
-                            <label class="col-form-label col-xl-3">環境的整潔及舒適</label>
-                            <div class="btn-group-toggle col-xl-3" data-toggle="buttons">
-                                <label class="btn btn-transparent-blue " autocomplete="off"
-                                    *ngFor="let item of Evaluation;let a=index" (click)="Give_evaluation(a)"
-                                    [class]="item.rate?'active':''">
-                                    <input type="radio" [checked]="Evaluation[a]"><i
-                                        [class]="!item.rate?'far fa-thumbs-up':'fas fa-thumbs-up'"></i>
-                                </label>
-                            </div>
-                            <div class="col-xl-6">
-                                <input type="text" class="form-control" placeholder="請輸入不滿意原因">
-                            </div>
-                        </div>
-                        <div class="row ml-3 my-1">
-                            <label class="col-form-label col-xl-3">硬體設施及空間配置</label>
-                            <div class="btn-group-toggle col-xl-3" data-toggle="buttons">
-                                <label class="btn btn-transparent-blue " autocomplete="off"
-                                    *ngFor="let item of Evaluation;let a=index" (click)="Give_evaluation(a)"
-                                    [class]="item.rate?'active':''">
-                                    <input type="radio" [checked]="Evaluation[a]"><i
-                                        [class]="!item.rate?'far fa-thumbs-up':'fas fa-thumbs-up'"></i>
-                                </label>
-                            </div>
-                            <div class="col-xl-6">
-                                <input type="text" class="form-control" placeholder="請輸入不滿意原因">
-                            </div>
-                        </div>
-
-                        <div class="ml-3 my-1 row">
-                            <label class="col-form-label col-12">提供的各項服務措施(本次接洽之服務項目)</label>
-                            <div class="btn-group-toggle row ml-1 col-12" data-toggle="buttons">
-                                <label class="btn btn-outline-success btn-sm col-sm-2 col-5 my-1 mx-1"
-                                    autocomplete="off" *ngFor="let item of check_box">
-                                    <input type="checkbox"> {{item}}
-                                </label>
+                                <div class="col-xl-6" *ngIf="satisfaction.face">
+                                    <input type="text" class="form-control" placeholder="請輸入不滿意原因">
+                                </div>
+                                <div class="col-12" *ngIf="!satisfaction.face">
+                                    <div class="row">
+                                    <div class="col-sm-3 col-6 my-1  btn-group-toggle" *ngFor="let item of check_box"
+                                        data-toggle="buttons">
+                                        <label class="btn btn-outline-success btn-sm btn-block" autocomplete="off">
+                                            <input type="checkbox"> {{item}}
+                                        </label>
+                                    </div></div>
+                                </div>
                             </div>
                         </div>
                         <hr>
-                        <div class="row ml-3 my-1">
-                            <label class="col-form-label col-xl-3">滿意情形</label>
-                            <div class="btn-group-toggle col-xl-3" data-toggle="buttons">
-                                <label class="btn btn-transparent-blue " autocomplete="off"
-                                    *ngFor="let item of Evaluation;let a=index" (click)="Give_evaluation(a)"
-                                    [class]="item.rate?'active':''">
-                                    <input type="radio" [checked]="Evaluation[a]"><i
-                                        [class]="!item.rate?'far fa-thumbs-up':'fas fa-thumbs-up'"></i>
-                                </label>
-                            </div>
-                            <div class="col-xl-6">
-                                <input type="text" class="form-control" placeholder="請輸入不滿意原因">
-                            </div>
+                    </div>
+                    <div class="bg-light pb-3 pr-3">
+                        <div class="row ml-3 my-3">
+                        <label class="col-form-label pl-3 pt-3">對於駐法院家暴服務中心之服務您尚有哪些意見或建議?</label>
+                        <div class="col-12 mt-2">
+                            <textarea class="form-control" rows="3"></textarea></div>
                         </div>
                     </div>
                 </div>

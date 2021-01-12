@@ -11,6 +11,7 @@ import { MultiInputTmplComponent } from './multi-input-tmpl/multi-input-tmpl.com
 import { ClassDisplayComponent } from './class-display/class-display.component';
 import { TableComponent } from './table/table.component';
 import { Practice01Component } from './practice/practice01/practice01.component';
+import { Practice02Component } from './practice/practice02/practice02.component';
 import { ButtonBoxComponent } from './button-box/button-box.component';
 import { CarouselComponent } from './carousel/carousel.component';
 
@@ -25,8 +26,9 @@ import { CarouselComponent } from './carousel/carousel.component';
     ClassDisplayComponent,
     TableComponent,
     Practice01Component,
+    Practice02Component,
     ButtonBoxComponent,
-    CarouselComponent
+    CarouselComponent,
   ],
   imports: [
     BrowserModule,
